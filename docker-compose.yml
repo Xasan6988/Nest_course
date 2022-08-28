@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: "course"
+      POSTGRES_USER: "gal"
+      POSTGRES_PASSWORD: "gal"
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
