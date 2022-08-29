@@ -1,5 +1,7 @@
 import { ConfigService } from '@nestjs/config';
 import { SequelizeModuleOptions } from '@nestjs/sequelize';
+import { Role } from 'src/roles/roles.model';
+import { UserRoles } from 'src/roles/user-roles.model';
 import { User } from 'src/users/users.model';
 
 
@@ -11,7 +13,7 @@ export const getPostgresConfig = async (configService: ConfigService): Promise<S
     username: configService.get('POSTGRES_USER'),
     password: configService.get('POSTGRES_PASSWORD'),
     database: configService.get('POSTGRES_DB'),
-    models: [User],
+    models: [User, Role, UserRoles],
     ...getPostgresOptions()
   }
 }

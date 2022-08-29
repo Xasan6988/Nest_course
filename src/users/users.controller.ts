@@ -8,7 +8,7 @@ import { UsersService } from './users.service';
 @Controller('users')
 export class UsersController {
 
-  constructor (private usersServise: UsersService) {}
+  constructor (private readonly usersServise: UsersService) {}
 
   @ApiOperation({summary: 'Create user'})
   @ApiResponse({status: 201, type: User})
