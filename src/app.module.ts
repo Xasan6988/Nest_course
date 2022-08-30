@@ -4,6 +4,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { getPostgresConfig } from './configs/postgres.config';
 import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { RolesModule } from './roles/roles.module';
       useFactory: getPostgresConfig
     }),
     UsersModule,
-    RolesModule
+    RolesModule,
+    AuthModule
   ],
   controllers: [],
   providers: []
