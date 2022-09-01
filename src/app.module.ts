@@ -5,7 +5,10 @@ import { getPostgresConfig } from './configs/postgres.config';
 import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
 import { AuthModule } from './auth/auth.module';
-
+import { PostsModule } from './posts/posts.module';
+import { FilesModule } from './files/files.module';
+import {ServeStaticModule} from '@nestjs/serve-static';
+import * as path from 'path';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -18,7 +21,12 @@ import { AuthModule } from './auth/auth.module';
     }),
     UsersModule,
     RolesModule,
-    AuthModule
+    AuthModule,
+    PostsModule,
+    FilesModule,
+    ServeStaticModule.forRoot({
+      rootPath: path.resolve(__dirname, 'static')
+    })
   ],
   controllers: [],
   providers: []
